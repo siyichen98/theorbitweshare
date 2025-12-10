@@ -5,37 +5,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arix Signature Tree</title>
 
-    <!-- Your Tailwind + fonts -->
+    <!-- Tailwind + Fonts -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
 
     <script>
       tailwind.config = {
         theme: {
           extend: {
             colors: {
-              'arix-gold': '#C5A059',
-              'arix-dark': '#050f0a',
-              'arix-green': '#0f3d24',
+              "arix-gold": "#C5A059",
+              "arix-dark": "#050f0a",
+              "arix-green": "#0f3d24",
             },
             fontFamily: {
-              serif: ['"Playfair Display"', 'serif'],
-              sans: ['"Lato"', 'sans-serif'],
+              serif: ['"Playfair Display"', "serif"],
+              sans: ['"Lato"', "sans-serif"],
             },
-          }
-        }
-      }
+          },
+        },
+      };
     </script>
 
     <style>
-      body { margin: 0; overflow: hidden; background-color: #050f0a; }
-      #root { width: 100vw; height: 100vh; }
+      body {
+        margin: 0;
+        overflow: hidden;
+        background-color: #050f0a;
+      }
+      #root {
+        width: 100vw;
+        height: 100vh;
+      }
     </style>
   </head>
 
   <body>
     <div id="root"></div>
 
-    <!-- Vite will automatically inject the correct JS bundle here -->
+    <!-- IMPORTANT: Load your React/Three.js entry file -->
+    <script type="module" src="./index.tsx"></script>
   </body>
 </html>
+
