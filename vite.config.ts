@@ -6,24 +6,25 @@ export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, '.', '');
 
   return {
-    // GitHub Pages base config
+    // 部署到 GitHub Pages 必须写这一行
     base: '/theorbitweshare/',
 
     server: {
       port: 3000,
-      host: '0.0.0.0',
+      host: '0.0.0.0'
     },
 
     plugins: [react()],
 
     define: {
       'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY),
+      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
     },
 
-    // ★ 删除 alias，让它保持最简单稳定
     resolve: {
-      alias: {}
+      alias: {
+        '@': path.resolve(process.cwd(), './')
+      }
     }
   };
 });
