@@ -4,11 +4,14 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [react()],
-  root: '.',               // project root is current folder
-  publicDir: 'public',     // optional, if you need assets
+  root: '.',               // 项目根目录
+  publicDir: 'public',     // 如果没有也没关系
   build: {
     outDir: 'dist',
-    emptyOutDir: true
+    emptyOutDir: true,
+    rollupOptions: {
+      input: path.resolve(__dirname, 'index.html'), // ⭐告诉 Vite 入口是 index.html
+    },
   },
   resolve: {
     alias: {
