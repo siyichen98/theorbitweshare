@@ -1,30 +1,18 @@
-import path from 'path';
-import { defineConfig, loadEnv } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from 'path'
 
-export default defineConfig(({ mode }) => {
-  const env = loadEnv(mode, '.', '');
-
-  return {
-    // 部署到 GitHub Pages 必须写这一行
-    base: '/theorbitweshare/',
-
-    server: {
-      port: 3000,
-      host: '0.0.0.0'
+export default defineConfig({
+  plugins: [react()],
+  root: '.',               // project root is current folder
+  publicDir: 'public',     // optional, if you need assets
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true
+  },
+  resolve: {
+    alias: {
+      '@': path.resolve(process.cwd(), './'),
     },
-
-    plugins: [react()],
-
-    define: {
-      'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-      'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
-    },
-
-    resolve: {
-      alias: {
-        '@': path.resolve(process.cwd(), './')
-      }
-    }
-  };
-});
+  },
+})
